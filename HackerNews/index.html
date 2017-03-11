@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/ui-bootstrap-tpls-2.5.0.min.js"></script>
+
+<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+ <link rel="stylesheet" href="ionic.css">
+ <link rel="stylesheet" href="app.css">
+<style>
+
+body{
+
+
+
+
+}
+td.th{
+
+padding-right: 90px
+}
+
+</style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" background="images/bck1.png">
+<div class="container">
+<div class="row">
+<div class="col-sm-8" style="margin-left: -250px;">
+<h1 style="color: white;text-align: center;">Hacker News</h1>
+<h3 style="color: #337ab7;text-align: center;">Best Hacker news article</h3>
+</div>
+<div class="col-sm-4" style="margin-left: 350px;color: white;margin-top: 20px">
+
+<h4 style="color: white;">Developed by :<span ><a href="https://www.linkedin.com/in/amit-jethwani-34413583/"  target="_blank"  > Amit Jethwani</a></span></h4>
+</div>
+</div>
+   </div>
+<div >
+
+
+<div class="row" style="margin-left: 320px;margin-bottom: 40px;z-index: 2;position: absolute;margin-top:-60px ">
+
+
+
+<div id="searchBox" class="input-group" style="width: 600px;">
+    <!--    <input ng-model="firstname" type="Search" placeholder="Search(by title)" class="form-control" />
+     -->
+     <div >
+   <typeahead items="items" prompt="Search title" title="title"  model="name" on-select="onItemSelected()" />
+ </div>
+     
+        <div >
+           
+         <button ng-show="hideSearch" class="btn btn-info" style="margin-top: -55px!important;float: right;" ng-click="clearSearch()">Clear Search</span></button>  
+           
+          
+    <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setFilter('By Name')">By Name</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setFilter('By Genere')">By Genere</a></li>
+        
+    </ul> -->
+           
+           
+           
+           
+       </div>
+       
+   </div>
+<!-- <button  class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-filter">
+           
+           </span></button> -->
+ 
+
+
+  </div>
+
+<div style="margin-top: 60px">
+
+ <div  class="row"  ng-repeat="x in itemsNew|filter:firstname| offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+
+<div class="col" >
+<ul ng-show="!x.indexCount=='0'"><div class = "panel panel-info" style="margin-right: -30px;background-color: #337ab7">
+   <div class = "panel-heading" style="background-color: lightgrey;margin-left: 50px;margin-right: 50px">
+     <div class="row">
+<div class="col-sm-2">
+      <h3>{{x.indexCount}}&nbsp;&nbsp;&nbsp;
+<span class="glyphicon glyphicon-forward"></span></h3>
+</div>
+<div class="col-sm-10" style="margin-left: -90px">
+ 
+
+<a href="{{x.url}}" target="_blank">
+      <h3>{{x.title}}</h3>
+   </a>
+      </div>
+      </div>
+      
+      <div class="row" style="margin-left: 70px">
+      
+      <div   class="col-sm-12">
+      
+      {{x.num_points}} points by {{x.author}} | {{x.timeDiff}} days ago | {{x.num_comments}} comments&nbsp;&nbsp;<span class="glyphicon glyphicon-comment"></span>
+      </div>
+      
+      </div>
+      
+      </div>
+   
+   </div></ul>
+   </div>
+</div>
+</div>
+<div class="row" style="margin-left: 520px;">
+    <ul class = "pagination" style="z-index: 0!important;">
+    <li ng-class="prevPageDisabled()">
+                <a href ng-click="prevPage()"><span class="glyphicon glyphicon-chevron-left"></span> Prev</a>
+              </li>
+              <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                <a href="#">{{n+1}}</a>
+              </li>
+              <li ng-class="nextPageDisabled()">
+                <a href ng-click="nextPage()">Next <span class="glyphicon glyphicon-chevron-right"></span></a>
+              </li>
+            </ul>
+            </div>
+ </div>
+
+</div>
+
+    
+</body>
+
+<script src="scripts/Controller.js">
+</script>
+
+
+
+
+</html>

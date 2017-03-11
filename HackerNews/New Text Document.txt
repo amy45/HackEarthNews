@@ -1,0 +1,62 @@
+<div class="input-group" style="margin-top:30px;width: 600px;margin-left: 350px;text-align: center;">
+       <input ng-model="firstname" type="Search" placeholder="Search(by name or gener)" class="form-control" />
+       <div class="input-group-btn">
+           
+           
+           </button>
+          
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setFilter('By Name')">By Name</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="setFilter('By Genere')">By Genere</a></li>
+        
+    </ul>
+           
+           
+           
+           
+       </div>
+       
+ <button style="margin-top: -40px" class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-filter">
+           
+           </span></button>
+   </div>
+
+
+
+  
+
+ <div style="margin-top: 50px" class="col-sm-12" ng-repeat="x in items| offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+
+
+<ul ><div class = "panel panel-info">
+   <div class = "panel-heading" style="height: 140px;background-color: lightgrey">
+     <div class="row">
+<div class="col-sm-2">
+      <h3>{{$index}}.</h3>
+</div>
+<div class="col-sm-10">
+<a href="{{x.url}}" target="_blank">
+      <h3>{{x.title}}</h3>
+   </a>
+      </div>
+      </div>
+      
+      </div>
+   
+   </div></ul>
+</div>
+
+</div>
+    <ul class = "pagination" style="margin-left: 550px">
+    <li ng-class="prevPageDisabled()">
+                <a href ng-click="prevPage()">« Prev</a>
+              </li>
+              <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                <a href="#">{{n+1}}</a>
+              </li>
+              <li ng-class="nextPageDisabled()">
+                <a href ng-click="nextPage()">Next »</a>
+              </li>
+            </ul>
+ 
